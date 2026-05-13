@@ -53,7 +53,7 @@ export default function Testimonials() {
   const prefersReduced = useReducedMotion();
 
   return (
-    <section id="testimonials" className="relative py-24 px-6 md:px-12 lg:px-24">
+    <section id="testimonials" className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-blue-600/[0.08] rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-purple-600/[0.08] rounded-full blur-[80px]" />

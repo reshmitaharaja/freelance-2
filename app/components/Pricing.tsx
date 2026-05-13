@@ -64,7 +64,7 @@ export default function Pricing() {
   const prefersReduced = useReducedMotion();
 
   return (
-    <section id="pricing" className="relative py-24 px-6 md:px-12 lg:px-24">
+    <section id="pricing" className="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-purple-600/[0.08] rounded-full blur-[120px]" />
       </div>
@@ -125,7 +125,7 @@ export default function Pricing() {
               whileHover={prefersReduced ? undefined : { y: -4, transition: { duration: 0.2 } }}
               className={`relative rounded-2xl p-7 backdrop-blur-sm border transition-all duration-300 cursor-pointer ${
                 plan.popular
-                  ? "bg-gradient-to-b from-blue-500/15 to-purple-500/10 border-blue-500/40 shadow-2xl shadow-blue-500/10 scale-105"
+                  ? "bg-gradient-to-b from-blue-500/15 to-purple-500/10 border-blue-500/40 shadow-2xl shadow-blue-500/10 md:scale-105"
                   : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/[0.08]"
               }`}
             >
