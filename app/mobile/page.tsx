@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
 import { SplineScene } from "@/components/ui/splite";
-import { Spotlight } from "@/components/ui/spotlight";
 
 /* ─────────────────────────────────────────────
    SHARED ANIMATION VARIANTS  (same as desktop)
@@ -130,7 +129,7 @@ export default function MobilePage() {
   const vp = { once: true, margin: "-40px", root: scrollRef };
 
   return (
-    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center py-12 px-4">
+    <div className="w-full min-h-screen bg-[#050505] flex flex-col items-center justify-center py-12 px-4">
       {/* Ambient background */}
       <div className="fixed inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/4 left-1/3  w-[600px] h-[500px] bg-purple-600/[0.07] rounded-full blur-[130px]" />
@@ -240,10 +239,7 @@ export default function MobilePage() {
               </motion.header>
 
               {/* ── HERO ── */}
-              <section className="relative px-5 pt-8 pb-10 overflow-hidden bg-black/[0.96]">
-                {/* Spotlight — same as desktop */}
-                <Spotlight className="-top-20 -left-4" fill="white" />
-
+              <section className="relative overflow-hidden bg-black/[0.96]">
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
                   <div className="absolute top-0 left-0 w-[280px] h-[220px] bg-purple-600/10 rounded-full blur-[70px]" />
                   <div className="absolute bottom-0 right-0 w-[200px] h-[160px] bg-blue-600/[0.08] rounded-full blur-[60px]" />
@@ -257,7 +253,8 @@ export default function MobilePage() {
                   />
                 </div>
 
-                <div className="relative z-10">
+                {/* Text content — padded */}
+                <div className="relative z-10 px-5 pt-8 pb-6">
                   {/* Beta badge */}
                   <motion.div
                     custom={0}
@@ -368,21 +365,22 @@ export default function MobilePage() {
                     </div>
                   </motion.div>
 
-                  {/* ── Interactive 3D scene — same as desktop ── */}
-                  <motion.div
-                    initial={prefersReduced ? false : { opacity: 0, y: 30, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.9, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                    className="mt-8 w-full h-[280px] relative rounded-2xl overflow-hidden border border-white/10"
-                  >
-                    <SplineScene
-                      scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                      className="w-full h-full"
-                    />
-                    <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-white/10" />
-                    <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-                  </motion.div>
                 </div>
+
+                {/* ── Interactive 3D scene — full width, outside padded div ── */}
+                <motion.div
+                  initial={prefersReduced ? false : { opacity: 0, y: 30, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.9, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative w-full h-[420px] border-t border-white/10 overflow-hidden"
+                >
+                  <SplineScene
+                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                    className="w-full h-full"
+                  />
+                  <div aria-hidden="true" className="absolute inset-0 pointer-events-none ring-inset ring-white/10" />
+                  <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                </motion.div>
               </section>
 
               {/* ── FEATURES ── */}
