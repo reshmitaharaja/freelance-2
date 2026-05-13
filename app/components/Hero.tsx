@@ -56,9 +56,9 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12 py-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:px-6 lg:gap-12 py-16">
         {/* ── Left: text content ── */}
-        <div className="flex-1 flex flex-col items-start">
+        <div className="flex-1 w-full px-6 md:px-12 lg:px-0 pb-10 lg:pb-0 flex flex-col items-start">
           {/* Badge */}
           <motion.div
             custom={0}
@@ -176,7 +176,7 @@ export default function Hero() {
           initial={prefersReduced ? false : { opacity: 0, x: 40, scale: 0.97 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex-1 w-full h-[480px] lg:h-[580px] relative rounded-2xl overflow-hidden border border-white/10"
+          className="flex-1 w-full h-[420px] sm:h-[480px] lg:h-[580px] relative overflow-hidden border-y lg:border border-white/10 lg:rounded-2xl lg:mx-0"
         >
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
